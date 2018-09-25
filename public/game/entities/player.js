@@ -11,7 +11,6 @@ Player.prototype.getSprite = function () {
 }
 Player.prototype.update = function () {
 
-
   if (cursors.left.isDown) {
     this.sprite.x = 350-this.width/2;
     this.sprite.scale.x = 1;
