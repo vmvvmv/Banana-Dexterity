@@ -1,7 +1,7 @@
 function Monkeys(game) {
 
   this.group = game.add.physicsGroup();
-  this.velocity = 350;
+  this.velocity = 450;
   this.fallenMonkey = 0;
 
 }
@@ -20,7 +20,7 @@ Monkeys.prototype.spawnFirstWave = function () {
 }
 
 Monkeys.prototype.spawnMonkey = function () {
-
+  
   var x = Math.random() > 0.5 ? 280 : 430;
   var monkey = this.group.create(x, -600 * 9, 'monkey');
   monkey.body.velocity.y = this.velocity;
@@ -37,7 +37,6 @@ Monkeys.prototype.update = function () {
 
     if (monkey.y > 600) {
       monkey.destroy();
-      //
       this.fallenMonkey++;
       this.spawnMonkey();
     }
@@ -68,10 +67,9 @@ Monkeys.prototype.upragadeVelocity = function () {
 
 Monkeys.prototype.reset = function () {
 
-  this.group.forEach(function (monkey) {
-    monkey.destroy();
-  });
-  this.velocity = 350;
+  this.group = game.add.physicsGroup();
+  this.velocity = 450;
   this.fallenMonkey = 0;
-  
+  this.enableSpawn = true;
+
 }
