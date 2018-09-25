@@ -6,4 +6,5 @@ function preload() {
   game.load.image('scoreHud', 'images/scoreHud.png');
   game.load.image('proggresbaremp', 'images/proggresbaremp.png');
   game.load.image('proggresbarfull', 'images/proggresbarfull.png');
+  game.load.image('background', 'images/background.png');
 }

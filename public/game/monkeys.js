@@ -20,7 +20,7 @@ Monkeys.prototype.spawnMonkey = function(){
 
 Monkeys.prototype.update = function(){
   function checkPos(monkey) {
-    if(monkey.y > 500){
+    if(monkey.y > 400){
       monkey.loadTexture('angryMonkey');
     }
     if (monkey.y > 600) {
