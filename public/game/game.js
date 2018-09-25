@@ -3,7 +3,7 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     cursors = game.input.keyboard.createCursorKeys();
     game.stage.backgroundColor = '#2d2d2d';
-    // game.add.sprite(0, 0, 'background');
+    game.add.sprite(0, 0, 'background');
     setStartState();
 
     scoreBar = new ScoreBar(game);
@@ -12,7 +12,6 @@ function create() {
     progressBar = new ProgressBar(game);
 
     showInfoBar("press [space] to begin, [left][right] for controll");
-
     fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     fireButton.onDown.add(function () {
         if (!game.gameState.isPlaying) {
