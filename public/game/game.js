@@ -14,7 +14,8 @@ function create() {
 
     player = new Player(game, cursors);
     monkeys = new Monkeys(game);
-    
+    progressBar = new ProgressBar(game);
+    progressBar.updateProgress();
 }
 
 function update(a,delta) {

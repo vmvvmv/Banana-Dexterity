@@ -4,4 +4,6 @@ function preload() {
   game.load.image('angryMonkey', 'images/angryMonkey.png');
   game.load.image('player', 'images/playerMin.png');
   game.load.image('scoreHud', 'images/scoreHud.png');
+  game.load.image('proggresbaremp', 'images/proggresbaremp.png');
+  game.load.image('proggresbarfull', 'images/proggresbarfull.png');
 }
