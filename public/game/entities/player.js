@@ -5,9 +5,12 @@ function Player(game, cursors) {
   this.sprite.anchor.set(0.5);
   this.width = this.sprite.width/2;
   game.physics.arcade.enable(this.sprite);
+
 }
 Player.prototype.getSprite = function () {
+
   return this.sprite;
+  
 }
 Player.prototype.update = function () {
 
