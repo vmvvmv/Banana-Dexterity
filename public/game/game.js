@@ -11,7 +11,8 @@ function create() {
         scoresToNextLevel: 6,
         score:0,
         prevLevelScores:0,
-        lastCheckedScores:0
+        lastCheckedScores:0,
+        fallenMonkey:0
     }
 
     scoreBar = new ScoreBar(game);
@@ -24,10 +25,19 @@ function create() {
 }
 
 function updateLevel(){
-    progressBar.updateProgress((game.gameState.score - game.gameState.prevLevelScores) / (game.gameState.scoresToNextLevel - game.gameState.prevLevelScores));
+    if(monkeys.fallenMonkey > game.gameState.fallenMonkey){
+        game.gameState.fallenMonkey = monkeys.fallenMonkey;
+        game.gameState.score ++;
+        scoreBar.updageScore( game.gameState.score);
+        let progreesPercent = (game.gameState.score - game.gameState.prevLevelScores) / (game.gameState.scoresToNextLevel - game.gameState.prevLevelScores);
+        progressBar.updateProgress(progreesPercent);
+
+    }
     if(game.gameState.lastCheckedScores === game.gameState.score ) return;
     if(game.gameState.score === game.gameState.scoresToNextLevel){
         game.gameState.level++;
+        progressBar.setLvl(game.gameState.level);
+
         game.gameState.prevLevelScores = game.gameState.scoresToNextLevel;
         game.gameState.scoresToNextLevel = game.gameState.scoresToNextLevel+ game.gameState.level * 4;
         monkeys.upragadeVelocity();
@@ -51,7 +61,8 @@ function resetGame(){
         scoresToNextLevel: 6,
         score:0,
         prevLevelScores:0,
-        lastCheckedScores:0
+        lastCheckedScores:0,
+        fallenMonkey:0
     }
     monkeys.reset();
     progressBar.reset();

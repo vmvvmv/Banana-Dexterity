@@ -2,7 +2,7 @@ function Monkeys(game) {
 
   this.group = game.add.physicsGroup();
   this.velocity = 350;
-
+  this.fallenMonkey = 0;
 }
 
 Monkeys.prototype.spawnFirstWave = function () {
@@ -30,7 +30,7 @@ Monkeys.prototype.update = function(){
     if (monkey.y > 600) {
       monkey.destroy();
       //
-      game.updageScore();
+      this.fallenMonkey++;
       this.spawnMonkey();
     }
   }
@@ -56,4 +56,5 @@ Monkeys.prototype.reset = function(){
     monkey.destroy();
   });
   this.velocity = 350;
+  this.fallenMonkey = 0;
 }
